@@ -8,7 +8,7 @@
 **Development Environment:** Visual Studio Code and GCC  
 **Repository:** LimitlessXOD/MFMS-PAP521S  
 **Project Due Date:** 02 October 2026  
-**Group Number:** [Enter group number]
+**Group Number:** [5]
 
 ## Group Members
 
@@ -16,7 +16,7 @@
 |---|---|---|---|---|
 | 1 | Dorothy K. Masilingi | 226091449 | Employee Management | `employees.c`, `employees.h` |
 | 2 | Andrew M. J. Akwaake | 226125610 | Budget Management | `budget.c`, `budget.h` |
-| 3 | Lonancia | 226035670 | Supplier Management | `suppliers.c`, `suppliers.h` |
+| 3 | Lonancia M. Matjayi | 226035670 | Supplier Management | `suppliers.c`, `suppliers.h` |
 | 4 | Karoline N. Nkandi | 225141361 | Asset Management | `assets.c`, `assets.h` |
 | 5 | Erastus T. Shalimba | 225057832 | Reports, testing, documentation and Git coordination | `reports.c`, `reports.h`, `README.md`, technical report |
 | 6 | Edwin H. Antonio | 226018652 | Functions, integration and validation | `main.c` |
