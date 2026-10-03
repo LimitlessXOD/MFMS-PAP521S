@@ -12,7 +12,7 @@ double allocated;
 double spent;
 };
 
-void addBudget(Budget list[], int count);
+int addBudget(Budget list[], int count);
 
 void displayBudgets(Budget list[], int count);
 

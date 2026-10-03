@@ -18,8 +18,8 @@
 | 2 | Andrew M. J. Akwaake | 226125610 | Budget Management | `budget.c`, `budget.h` |
 | 3 | Lonancia M. Matjayi | 226035670 | Supplier Management | `suppliers.c`, `suppliers.h` |
 | 4 | Karoline N. Nkandi | 225141361 | Asset Management | `assets.c`, `assets.h` |
-| 5 | Erastus T. Shalimba | 225057832 | Reports, testing, documentation and Git coordination | `reports.c`, `reports.h`, `README.md`, technical report |
-| 6 | Edwin H. Antonio | 226018652 | Functions, integration and validation | `main.c` |
+| 5 | Erastus T. Shalimba | 225057832 | Reports, final integration/testing, documentation and Git coordination | `reports.c`, `reports.h`, `main.c`, `README.md`, `TESTING.md`, technical report |
+| 6 | Edwin H. Antonio | 226018652 | Functions and validation support | `main.c` |
 
 ## Project Description
 

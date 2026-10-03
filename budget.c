@@ -18,22 +18,32 @@ void checkStatus(double allocated, double spent) {
 }
 
 /* Add a department budget */
-void addBudget(struct Budget list[], int count) {
+int addBudget(struct Budget list[], int count) {
     if (count >= 10) {
         printf("Error: List is full!\n");
-        return;
+        return count;
     }
 
     printf("\nEnter Department Name: ");
-    scanf("%s", list[count].name);
+    if (scanf("%49s", list[count].name) != 1) {
+        printf("Invalid department name.\n");
+        return count;
+    }
 
     printf("Enter Allocated Budget: ");
-    scanf("%lf", &list[count].allocated);
+    if (scanf("%lf", &list[count].allocated) != 1 || list[count].allocated < 0) {
+        printf("Invalid allocated budget amount.\n");
+        return count;
+    }
 
     printf("Enter Current Spent Amount: ");
-    scanf("%lf", &list[count].spent);
+    if (scanf("%lf", &list[count].spent) != 1 || list[count].spent < 0) {
+        printf("Invalid spent amount.\n");
+        return count;
+    }
 
     printf("Department added successfully!\n");
+    return count + 1;
 }
 
 /* Display all budgets */
@@ -74,7 +84,10 @@ void updateSpending(struct Budget list[], int count) {
         if (strcmp(list[i].name, search) == 0) {
             printf("Found department! Current spent: %.2f\n", list[i].spent);
             printf("Enter extra spending to add: ");
-            scanf("%lf", &extra);
+            if (scanf("%lf", &extra) != 1 || extra < 0) {
+                printf("Invalid spending amount.\n");
+                return;
+            }
             
             list[i].spent = list[i].spent + extra;
             printf("New total spent: %.2f\n", list[i].spent);
@@ -140,7 +153,7 @@ return 0;
 
 }
 
-while (fscanf(fp, "%s %lf %lf", list[count].name, &list[count].allocated, &list[count].spent) != EOF) {
+while (count < 10 && fscanf(fp, "%49s %lf %lf", list[count].name, &list[count].allocated, &list[count].spent) == 3) {
 
 count++;
 

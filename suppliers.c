@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "Suppliers.h"
+#include "suppliers.h"
 
 
 // Get a valid number from the user
@@ -185,4 +185,3 @@ void compareAndSearchSupplier(const int ids[], const char names[][STR_LEN], cons
             }
 
     }
-

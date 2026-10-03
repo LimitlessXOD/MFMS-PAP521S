@@ -2,8 +2,6 @@
 #include <string.h>
 #include "assets.h"
 
-#define MAX_ASSETS 100
-
 Asset assets[MAX_ASSETS];
 int assetCount = 0;
 
@@ -16,7 +14,11 @@ void addAsset(void)
      }
 
      printf("Enter Asset ID: ");
-     scanf("%d", &assets[assetCount].id);
+     if (scanf("%d", &assets[assetCount].id) != 1 || assets[assetCount].id <= 0)
+     {
+        printf("Invalid asset ID.\n");
+        return;
+     }
 
      printf("Enter Asset name: ");
      scanf(" %49[^\n]", assets[assetCount].name);
@@ -25,7 +27,11 @@ void addAsset(void)
      scanf(" %29[^\n]", assets[assetCount].type);
 
      printf("Enter Purchase value: ");
-     scanf("%lf", &assets[assetCount].purchaseValue);
+     if (scanf("%lf", &assets[assetCount].purchaseValue) != 1 || assets[assetCount].purchaseValue < 0)
+     {
+        printf("Invalid purchase value.\n");
+        return;
+     }
 
      printf("Enter Department: ");
      scanf(" %49[^\n]", assets[assetCount].department);
@@ -69,7 +75,11 @@ void searchAsset(void)
     int found = 0;
 
     printf("Enter Asset ID to search: ");
-    scanf("%d", &id);
+    if (scanf("%d", &id) != 1 || id <= 0)
+    {
+        printf("Invalid asset ID.\n");
+        return;
+    }
 
     for (i = 0; i < assetCount; i++)
     {
