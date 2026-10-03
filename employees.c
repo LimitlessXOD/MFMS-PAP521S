@@ -6,6 +6,7 @@
 // We use parallel arrays because we have not learned structures yet
 int employeeIDs[MAX_EMPLOYEES];
 char employeeNames[MAX_EMPLOYEES][NAME_LEN];
+char employeeDepartments[MAX_EMPLOYEES][NAME_LEN];
 double basicSalaries[MAX_EMPLOYEES];
 double housingAllowances[MAX_EMPLOYEES];
 double transportAllowances[MAX_EMPLOYEES];
@@ -71,6 +72,7 @@ void addEmployee()
 {
     int id;
     char name[NAME_LEN];
+    char department[NAME_LEN];
     double basic;
     double housing;
     double transport;
@@ -108,6 +110,8 @@ void addEmployee()
     // Ask for employee name (single word only)
     printf("Enter employee name: ");
     scanf("%49s", name);
+    printf("Enter employee department: ");
+    scanf("%49s", department);
 
     // Ask for salary details
     printf("Enter basic salary: ");
@@ -132,6 +136,7 @@ void addEmployee()
     // Store the record in the arrays
     employeeIDs[employeeCount] = id;
     strcpy(employeeNames[employeeCount], name);
+    strcpy(employeeDepartments[employeeCount], department);
     basicSalaries[employeeCount] = basic;
     housingAllowances[employeeCount] = housing;
     transportAllowances[employeeCount] = transport;
@@ -165,7 +170,7 @@ void displayEmployees()
     }
 
     printf("\n========== EMPLOYEE REPORT ==========\n");
-    printf("%-8s %-15s %-12s %-12s\n", "ID", "Name", "Gross", "Net");
+   printf("%-8s %-15s %-15s %-12s %-12s\n", "ID", "Name", "Department", "Gross", "Net");
     printf("-------------------------------------\n");
 
     for (i = 0; i < employeeCount; i++)
@@ -175,9 +180,10 @@ void displayEmployees()
                                      transportAllowances[i]);
         net = calculateNetSalary(gross, taxes[i]);
 
-        printf("%-8d %-15s %-12.2f %-12.2f\n",
+        printf("%-8d %-15s %-15s %-12.2f %-12.2f\n",
                employeeIDs[i],
                employeeNames[i],
+               employeeDepartments[i],
                gross,
                net);
     }
@@ -227,6 +233,7 @@ void searchEmployee()
     printf("\n--- EMPLOYEE FOUND ---\n");
     printf("ID: %d\n", employeeIDs[index]);
     printf("Name: %s\n", employeeNames[index]);
+    printf("Department: %s\n", employeeDepartments[index]);
     printf("Basic Salary: %.2f\n", basicSalaries[index]);
     printf("Housing Allowance: %.2f\n", housingAllowances[index]);
     printf("Transport Allowance: %.2f\n", transportAllowances[index]);
