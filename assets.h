@@ -7,6 +7,6 @@ typedef struct {
   char condition[30];
 } Asset;
 
-void addAsset(Asset asset);
+void addAsset(void);
 void displayAssets(void);
 void searchAsset(void);
