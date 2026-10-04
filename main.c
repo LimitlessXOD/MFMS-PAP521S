@@ -77,8 +77,10 @@ void budgetMenu(Budget budgets[], int *budgetCount)
         {
             if (*budgetCount < MAX_BUDGETS)
             {
-                addBudget(budgets, *budgetCount);
-                *budgetCount = *budgetCount + 1;
+                if (addBudget(budgets, *budgetCount))
+                {
+                    *budgetCount = *budgetCount + 1;
+                }
             }
             else
             {

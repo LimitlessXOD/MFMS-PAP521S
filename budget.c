@@ -18,10 +18,10 @@ void checkStatus(double allocated, double spent) {
 }
 
 /* Add a department budget */
-void addBudget(struct Budget list[], int count) {
+int addBudget(struct Budget list[], int count) {
     if (count >= 10) {
         printf("Error: List is full!\n");
-        return;
+        return 0;
     }
 
     printf("\nEnter Department Name: ");
@@ -32,7 +32,7 @@ void addBudget(struct Budget list[], int count) {
 
     if (list[count].allocated < 0) {
         printf("Allocated budget cannot be negative.\n");
-        return;
+        return 0;
     }
 
     printf("Enter Current Spent Amount: ");
@@ -40,10 +40,11 @@ void addBudget(struct Budget list[], int count) {
 
     if (list[count].spent < 0) {
         printf("Spent amount cannot be negative.\n");
-        return;
+        return 0;
     }
 
     printf("Department added successfully!\n");
+    return 1;
 }
 
 /* Display all budgets */
