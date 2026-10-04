@@ -2,8 +2,7 @@
 #include <string.h>
 #include "employees.h"
 
-// Arrays to store employee information
-// We use parallel arrays because we have not learned structures yet
+// storing employee stuff in arrays, coz no structs yet
 int employeeIDs[MAX_EMPLOYEES];
 char employeeNames[MAX_EMPLOYEES][NAME_LEN];
 char employeeDepartments[MAX_EMPLOYEES][NAME_LEN];
@@ -12,26 +11,24 @@ double housingAllowances[MAX_EMPLOYEES];
 double transportAllowances[MAX_EMPLOYEES];
 double taxes[MAX_EMPLOYEES];
 
-// Tracks how many employees have been captured
-int employeeCount = 0;
+int employeeCount = 0;   // how many we got so far
 
-// calculateGrossSalary
-// Gross = Basic + Housing + Transport
+
+// checking the gross, basic plus the allowances
 double calculateGrossSalary(double basic, double housing, double transport)
 {
     return basic + housing + transport;
 }
 
-// calculateNetSalary
-// Net = Gross - Tax
+
+// checking the net, gross minus tax
 double calculateNetSalary(double gross, double tax)
 {
     return gross - tax;
 }
 
-// isDuplicateID
-// Checks whether an ID already exists in the system
-// Returns 1 if duplicate, 0 if not
+
+// checking the ID is not already used
 int isDuplicateID(int id)
 {
     int i;
@@ -47,9 +44,8 @@ int isDuplicateID(int id)
     return 0;
 }
 
-// findEmployeeIndex
-// Returns the position of the employee in the array
-// Returns -1 if the employee is not found
+
+// checking where the employee sits in the array, -1 if not there
 int findEmployeeIndex(int id)
 {
     int i;
@@ -65,22 +61,16 @@ int findEmployeeIndex(int id)
     return -1;
 }
 
-// addEmployee
-// Prompts the user for employee details
-// Validates input and stores the record
+
+// checking the list is not full before adding
 void addEmployee()
 {
     int id;
     char name[NAME_LEN];
     char department[NAME_LEN];
-    double basic;
-    double housing;
-    double transport;
-    double tax;
-    double gross;
-    double net;
+    double basic, housing, transport, tax;
+    double gross, net;
 
-    // Check if the array is full
     if (employeeCount >= MAX_EMPLOYEES)
     {
         printf("\n[ERROR] Employee limit reached.\n");
@@ -89,31 +79,30 @@ void addEmployee()
 
     printf("\n--- ADD NEW EMPLOYEE ---\n");
 
-    // Ask for employee ID
     printf("Enter employee ID: ");
     scanf("%d", &id);
 
-    // Validate the ID
+    // checking the ID is a positive number
     if (id <= 0)
     {
         printf("[ERROR] ID must be a positive number.\n");
         return;
     }
 
-    // Check for duplicate ID
+    // checking the ID isnt a duplicate
     if (isDuplicateID(id) == 1)
     {
         printf("[ERROR] Employee ID %d already exists.\n", id);
         return;
     }
 
-    // Ask for employee name (single word only)
+    // cant use spaces here, scanf stops, gonna fix with fgets later
     printf("Enter employee name: ");
     scanf("%49s", name);
+
     printf("Enter employee department: ");
     scanf("%49s", department);
 
-    // Ask for salary details
     printf("Enter basic salary: ");
     scanf("%lf", &basic);
 
@@ -126,14 +115,14 @@ void addEmployee()
     printf("Enter tax deduction: ");
     scanf("%lf", &tax);
 
-    // Validate that salary values are not negative
+    // checking none of the salary values is negative
     if (basic < 0 || housing < 0 || transport < 0 || tax < 0)
     {
         printf("[ERROR] Salary values cannot be negative.\n");
         return;
     }
 
-    // Store the record in the arrays
+    // ok all fine, saving it now
     employeeIDs[employeeCount] = id;
     strcpy(employeeNames[employeeCount], name);
     strcpy(employeeDepartments[employeeCount], department);
@@ -142,10 +131,8 @@ void addEmployee()
     transportAllowances[employeeCount] = transport;
     taxes[employeeCount] = tax;
 
-    // Increase the employee count
     employeeCount++;
 
-    // Calculate gross and net salary
     gross = calculateGrossSalary(basic, housing, transport);
     net = calculateNetSalary(gross, tax);
 
@@ -154,15 +141,13 @@ void addEmployee()
     printf("Net Salary: %.2f\n", net);
 }
 
-// displayEmployees
-// Shows all captured employees in a report format
+
+// checking if there is anyone to show, then printing the table
 void displayEmployees()
 {
     int i;
-    double gross;
-    double net;
+    double gross, net;
 
-    // Check if there is nothing to display
     if (employeeCount == 0)
     {
         printf("\nNo employees have been captured yet.\n");
@@ -170,7 +155,7 @@ void displayEmployees()
     }
 
     printf("\n========== EMPLOYEE REPORT ==========\n");
-   printf("%-8s %-15s %-15s %-12s %-12s\n", "ID", "Name", "Department", "Gross", "Net");
+    printf("%-8s %-15s %-15s %-12s %-12s\n", "ID", "Name", "Department", "Gross", "Net");
     printf("-------------------------------------\n");
 
     for (i = 0; i < employeeCount; i++)
@@ -193,16 +178,13 @@ void displayEmployees()
     printf("=====================================\n");
 }
 
-// searchEmployee
-// Asks the user for an ID and displays the matching record
+
+// checking if there is anyone to search first, then looking for the ID
 void searchEmployee()
 {
-    int id;
-    int index;
-    double gross;
-    double net;
+    int id, index;
+    double gross, net;
 
-    // Check if there is anything to search
     if (employeeCount == 0)
     {
         printf("\nNo employees available to search.\n");
@@ -213,23 +195,20 @@ void searchEmployee()
     printf("Enter employee ID to search: ");
     scanf("%d", &id);
 
-    // Find the employee
     index = findEmployeeIndex(id);
 
-    // If not found
+    // checking we actually found someone
     if (index == -1)
     {
         printf("[NOT FOUND] No employee with ID %d.\n", id);
         return;
     }
 
-    // Calculate salary details
     gross = calculateGrossSalary(basicSalaries[index],
                                  housingAllowances[index],
                                  transportAllowances[index]);
     net = calculateNetSalary(gross, taxes[index]);
 
-    // Display the record
     printf("\n--- EMPLOYEE FOUND ---\n");
     printf("ID: %d\n", employeeIDs[index]);
     printf("Name: %s\n", employeeNames[index]);
