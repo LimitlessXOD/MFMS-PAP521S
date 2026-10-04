@@ -25,13 +25,23 @@ void addBudget(struct Budget list[], int count) {
     }
 
     printf("\nEnter Department Name: ");
-    scanf("%s", list[count].name);
+    scanf("%49s", list[count].name);
 
     printf("Enter Allocated Budget: ");
     scanf("%lf", &list[count].allocated);
 
+    if (list[count].allocated < 0) {
+        printf("Allocated budget cannot be negative.\n");
+        return;
+    }
+
     printf("Enter Current Spent Amount: ");
     scanf("%lf", &list[count].spent);
+
+    if (list[count].spent < 0) {
+        printf("Spent amount cannot be negative.\n");
+        return;
+    }
 
     printf("Department added successfully!\n");
 }
@@ -75,6 +85,11 @@ void updateSpending(struct Budget list[], int count) {
             printf("Found department! Current spent: %.2f\n", list[i].spent);
             printf("Enter extra spending to add: ");
             scanf("%lf", &extra);
+
+            if (extra < 0) {
+                printf("Extra spending cannot be negative.\n");
+                return;
+            }
             
             list[i].spent = list[i].spent + extra;
             printf("New total spent: %.2f\n", list[i].spent);

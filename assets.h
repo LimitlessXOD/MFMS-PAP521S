@@ -1,3 +1,6 @@
+#ifndef ASSETS_H
+#define ASSETS_H
+
 typedef struct {
   int id;
   char name[50];
@@ -10,3 +13,5 @@ typedef struct {
 void addAsset(void);
 void displayAssets(void);
 void searchAsset(void);
+
+#endif

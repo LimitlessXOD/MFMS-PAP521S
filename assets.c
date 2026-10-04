@@ -18,6 +18,12 @@ void addAsset(void)
      printf("Enter Asset ID: ");
      scanf("%d", &assets[assetCount].id);
 
+     if (assets[assetCount].id <= 0)
+     {
+        printf("Invalid Asset ID. Must be a positive number.\n");
+        return;
+     }
+
      printf("Enter Asset name: ");
      scanf(" %49[^\n]", assets[assetCount].name);
 
@@ -26,6 +32,12 @@ void addAsset(void)
 
      printf("Enter Purchase value: ");
      scanf("%lf", &assets[assetCount].purchaseValue);
+
+     if (assets[assetCount].purchaseValue < 0)
+     {
+        printf("Purchase value cannot be negative.\n");
+        return;
+     }
 
      printf("Enter Department: ");
      scanf(" %49[^\n]", assets[assetCount].department);

@@ -59,7 +59,8 @@ int addSupplier(int ids[], char names[][STR_LEN], char emails[][STR_LEN], char t
 
 printf("\n--- ADD NEW SUPPLIER ---\n");
 ids[count]=getInteger("Enter Supplier ID: ");
-if (ids[count]==-1){
+if (ids[count]<=0){
+printf("Invalid Supplier ID. Must be a positive number.\n");
 return count;
 
 }
@@ -70,6 +71,11 @@ if(fgets(names[count], STR_LEN, stdin)==NULL){
 
 }
 removeNewline(names[count]);
+
+if(strlen(names[count])==0){
+    printf("Supplier name cannot be empty.\n");
+    return count;
+}
 
 //Ask for a valid email
 do{
@@ -185,4 +191,3 @@ void compareAndSearchSupplier(const int ids[], const char names[][STR_LEN], cons
             }
 
     }
-
