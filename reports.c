@@ -18,7 +18,7 @@ extern int employeeCount;
 
 /*
     These variables are created in assets.c.
-    extern allows us to use them in this file.
+    extern allow us to use them in this file.
 */
 extern Asset assets[];
 extern int assetCount;
