@@ -18,8 +18,10 @@
 | 2 | Andrew M. J. Akwaake | 226125610 | Budget Management | `budget.c`, `budget.h` |
 | 3 | Lonancia M. Matjayi | 226035670 | Supplier Management | `suppliers.c`, `suppliers.h` |
 | 4 | Karoline N. Nkandi | 225141361 | Asset Management | `assets.c`, `assets.h` |
-| 5 | Erastus T. Shalimba | 225057832 | Reports, testing, documentation and Git coordination | `reports.c`, `reports.h`, `README.md`, technical report |
+| 5 | Erastus T. Shalimba | 225057832 | Testing, documentation and Git coordination | Technical report, system testing, GitHub coordination |
 | 6 | Edwin H. Antonio | 226018652 | Functions, integration and validation | `main.c` |
+| 7 | Haukongo Wilbard | 225127695 | Reports | `reports.c`, `reports.h` |
+| 8 | Aina Kashupi | 224031856 | Documentation | `README.md` |
 
 ## Project Description
 
@@ -234,15 +236,12 @@ Karoline worked on the asset management module. This included recording, display
 ### Erastus T. Shalimba
 
 **Student Number:** 225057832  
-**Responsibilities:** Reports, testing, documentation and Git coordination  
+**Responsibility:** Testing, documentation and Git coordination  
 
-Erastus worked on the reports module and helped to test the complete system. He also prepared the README file and technical report and helped coordinate the GitHub repository.
+Erastus tested the complete system across every module, including deliberately entering invalid input (negative values, blank fields, ID 0) to find gaps that needed fixing. He set up and coordinated the GitHub repository and wrote the technical report.
 
 **Files and work:**
 
-- `reports.c`
-- `reports.h`
-- `README.md`
 - Technical report
 - System testing
 - GitHub coordination
@@ -257,6 +256,29 @@ Edwin worked on connecting the different modules to the main program. He also wo
 **File:**
 
 - `main.c`
+
+### Haukongo Wilbard
+
+**Student Number:** 225127695  
+**Responsibility:** Reports  
+
+Haukongo did the reports module, which pulls data from the employee, budget, supplier and asset modules to produce totals and summaries.
+
+**Files:**
+
+- `reports.c`
+- `reports.h`
+
+### Aina Kashupi
+
+**Student Number:** 224031856  
+**Responsibility:** Documentation  
+
+Aina is responsible for the README, covering the project description, features, compile instructions and group information.
+
+**File:**
+
+- `README.md`
 
 ## GitHub Collaboration
 
@@ -313,5 +335,3 @@ The Municipal Financial Management System is a foundation system for managing ba
 The project helped the group practise the C programming concepts covered in PAP521S. These concepts include functions, arrays, strings, loops, decision-making, input validation and modular programming.
 
 The project also gave the group experience in working as a team and using GitHub for version control.
-
-In the future, the system can be improved by adding file storage, user login, better reports, editing and deleting records, and a database.
