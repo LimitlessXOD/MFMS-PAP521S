@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "Suppliers.h"
+#include "suppliers.h"
 
 
 // Get a valid number from the user
