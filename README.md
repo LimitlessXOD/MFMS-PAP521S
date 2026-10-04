@@ -25,11 +25,11 @@
 
 ## Project Description
 
-The Municipal Financial Management System is a C programming project developed for a municipality. The system is designed to manage basic municipal information, including employees, budgets, suppliers and municipal assets.
+The Municipal Financial Management System is a C programming project developed for a municipality. The system is designed to manage information, including employees, budgets, suppliers and municipal assets.
 
-This project demonstrates the programming concepts covered in PAP521S – Programming in Practice. These concepts include variables, arrays, strings, functions, loops, decision-making and input validation.
+This project displays the programming concepts covered in PAP521S – Programming in Practice. These concepts include variables, arrays, strings, functions, loops, decision making and input validation.
 
-The system is menu-driven, which allows the user to select the section they want to use.
+The system is menu driven, which allows the user to select the section they want to use.
 
 ## System Features
 
