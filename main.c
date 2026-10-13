@@ -120,7 +120,7 @@ void supplierMenu(int supplierIDs[],
 
     do
     {
-        printf("\n==============================\n");
+        printf("\n=============================\n");
         printf("       SUPPLIER MANAGEMENT\n");
         printf("==============================\n");
         printf("1. Add supplier\n");
