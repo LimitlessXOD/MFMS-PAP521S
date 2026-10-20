@@ -11,7 +11,7 @@ void clearInput(void)
 {
     int ch;
 
-    while ((ch = getchar()) != '\n' && ch != EOF)
+    while ((ch = getchar()) != '\n' && ch != EOF) 
     {
         /* clear extra input */
     }
@@ -19,7 +19,7 @@ void clearInput(void)
 
 void employeeMenu(void)
 {
-    int choice;
+    int choice; 
 
     do
     {
